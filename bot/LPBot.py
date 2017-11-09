@@ -7,14 +7,15 @@ import json
 from collections import namedtuple
 import os
 
-tokenLP = open('/home/pi/Documents/certs_telegram/token_lp.txt', 'r').read()
+tokenLP = open('/home/pi/Documents/certs_telegram/token_lp.txt', 'r').read().replace('\n', '')
 linkToJsonFile = '/home/pi/Documents/HomeProject/KeyWordsLP.json'
-host = open('/home/pi/Documents/certs_telegram/host_lp.txt', 'r').read()
+host = open('/home/pi/Documents/certs_telegram/host_lp.txt', 'r').read().replace('\n', '')
 cert = '/home/pi/Documents/certs_telegram/cert.pem'
 key = '/home/pi/Documents/certs_telegram/private.key'
 port = 443
 
 bot = telepot.Bot(tokenLP)
+print('https://%s:%s/%s' % (host, port, tokenLP))
 bot.setWebhook('https://%s:%s/%s' % (host, port, tokenLP), open(cert))
 # print(bot.getMe())
 

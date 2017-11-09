@@ -15,7 +15,6 @@ key = '/home/pi/Documents/certs_telegram/private.key'
 port = 443
 
 bot = telepot.Bot(tokenLP)
-print('https://%s:%s/%s' % (host, port, tokenLP))
 bot.setWebhook('https://%s:%s/%s' % (host, port, tokenLP), open(cert))
 # print(bot.getMe())
 
